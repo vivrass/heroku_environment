@@ -9,6 +9,7 @@ Gem::Specification.new do |gem|
   gem.homepage      = ""
 
   gem.add_dependency "heroku"
+  gem.add_dependency "rails", "> 3"
 
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "ruby-debug19"
