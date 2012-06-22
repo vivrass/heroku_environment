@@ -18,12 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
-Create config/production_heroku_environment.yml and add as a YAML hash your environment variables.
+Create `config/production_heroku_environment.yml` and add as a YAML hash your environment variables.
 
     FACEBOOK_APP_ID: 1234567
     FACEBOOK_SECRET: this_is_really_secret
 
-Add config/production_heroku_environment.yml to your .gitignore file (you don't want to commit it)
+Add config/production_heroku_environment.yml to your `.gitignore` file (you don't want to commit it)
 
     echo "config/production_heroku_environment.yml" >> .gitignore
 
