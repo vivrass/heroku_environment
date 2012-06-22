@@ -11,3 +11,7 @@ module HerokuEnvironment
     @config ||= Config.new
   end
 end
+
+if defined?(Rails)
+  require "heroku_environment/rails_init"
+end
