@@ -59,4 +59,23 @@ describe HerokuEnvironment::DeployHeroku do
       end
     end
   end
+
+  context "#load_environment" do
+    context "Given prod variables" do
+      before do
+        HerokuEnvironment.config.should_receive(:read_configuration).with(HerokuEnvironment.config.production_configuration_file).and_return(prod_var)
+      end
+
+      it "should execute heroku script" do
+        subject.should_receive(:'`').with("heroku config:add var_1=first_prod_variable var_2=prod_2")
+
+        begin
+          stdout, $stdout = $stdout, StringIO.new # Silence put
+          subject.load_environment
+        ensure
+          $stdout = stdout
+        end
+      end
+    end
+  end
 end

@@ -18,5 +18,12 @@ module HerokuEnvironment
         raise MissingEnvironmentVariableException.new(error_message)
       end
     end
+
+    def self.load_environment
+      prod_environment_variables = HerokuEnvironment.config.read_configuration(HerokuEnvironment.config.production_configuration_file)
+
+      puts "Updating keys: #{prod_environment_variables.keys.join(", ")}"
+      `heroku config:add #{prod_environment_variables.map{|var, value| "#{var}=#{value}"}.join(" ")}`
+    end
   end
 end

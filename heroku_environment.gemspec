@@ -8,6 +8,8 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{This gem is used to easily manage your Heroku variable environment.}
   gem.homepage      = ""
 
+  gem.add_dependency "heroku"
+
   gem.add_development_dependency "rspec"
   gem.add_development_dependency "ruby-debug19"
 
