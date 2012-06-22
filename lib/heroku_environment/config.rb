@@ -13,7 +13,11 @@ module HerokuEnvironment
     end
 
     def read_configuration(configuration_file)
-      YAML.load(File.read(configuration_file))
+      if File.exists?(configuration_file)
+        YAML.load(File.read(configuration_file))
+      else
+        nil
+      end
     end
   end
 end

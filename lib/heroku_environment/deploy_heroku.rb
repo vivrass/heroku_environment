@@ -2,6 +2,7 @@ module HerokuEnvironment
   module DeployHeroku
     def self.verify_config_files
       dev_environment_variables  = HerokuEnvironment.config.read_configuration(HerokuEnvironment.config.configuration_file)
+      return if dev_environment_variables.nil? # Development file doesn't exist, so production config file is valid
       prod_environment_variables = HerokuEnvironment.config.read_configuration(HerokuEnvironment.config.production_configuration_file)
 
       missing_dev_variables = []
